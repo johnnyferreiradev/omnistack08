@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const routes = require('./routes');
 
@@ -10,6 +11,7 @@ mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-ft28b.mongodb.net/o
     useNewUrlParser: true // Remove o DeprecationWarning
 });
 
+server.use(cors());
 server.use(express.json()); // Faz com que o express interprete requisições do tipo json com valores passados pelo body
 server.use(routes);
 
